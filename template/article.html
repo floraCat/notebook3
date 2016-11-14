@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title><{$smarty.get.col}></title>
+	<link rel="stylesheet" href="style/h_reset.css" />
+	<link rel="stylesheet" href="style/list.css" />
+	<script src="js/jquery-1.10.2.js"></script>
+	<style>
+	.sList .ol2 a{ display: block; }
+	</style>
+</head>
+
+<body>
+
+
+
+	<!--详情弹出层-->
+	<div class="sContent content-panel">
+		<!-- <div class="mask"></div>
+		<a class="quit"></a> -->
+		<div class="sList">
+
+			<div class="ttl">
+				<a class="blank" href="index.php?act=list&tpl=article&id=<{$rsedit.id}>">_blank</a>
+				<{if $rsedit.ttl}>
+				<a target="_blank" class="A ttl_ mark_<{$rsedit.mark}>"><{$rsedit.ttl}></a>
+				<{else}>
+				<a target="_blank" class="A ttl_ mark_<{$rsedit.mark}>"><{$rsedit.input_time}></a>
+				<{/if}>
+				<{if $rsedit.bCat}>
+				<ol class="ol1 bCat">
+					<h5>大分类：</h5>
+					<p><{$rsedit.bCat}></p>					
+				</ol>
+				<{/if}>
+				<!-- <{if $rsedit.sCat}>
+				<ol class="ol1 sCat">
+					<h5>小分类：</h5>
+					<p><{$rsedit.sCat}></p>					
+				</ol>
+				<{/if}>
+				<{if $rsedit.attr}>
+				<ol class="ol1 attr">
+					<h5>属性：</h5>
+					<p><{$rsedit.attr}></p>					
+				</ol>
+				<{/if}> -->
+				<{if $rsedit.keyword}>
+				<ol class="ol1 keyword">
+					<h5>关键字：</h5>
+					<p><{$rsedit.keyword}></p>					
+				</ol>
+				<{/if}>
+				<{if $smarty.get.col=="material"}>
+					<ol class="ol1">
+						<h5>主题：</h5>
+						<p><{$rsedit.topic_name}> | ID:<{$rsedit.topic_id}></p>					
+					</ol>
+				<{/if}>
+				<{if $smarty.get.col=="topic"}>
+					<ol class="ol1">
+						<h5>ID：</h5>
+						<p><{$rsedit.id}></p>					
+					</ol>
+					<{/if}>
+				<ol class="ol2">
+					<a onclick="return confirm('是否删除此条目？');" href="index.php?act=del&col=<{$smarty.get.col}>&id=<{$rsedit.id}>">删除</a>
+					<a href="index.php?act=edit&col=<{$smarty.get.col}>&id=<{$rsedit.id}>">编辑</a>
+				</ol>
+			</div>
+			<div class="infos">
+				<ol class="ol1 input">
+					<h5>创建时间：</h5>
+					<p><{$rsedit.input_time}></p>					
+				</ol>
+				<ol class="ol1 update">
+					<h5>最后更新：</h5>
+					<p><{$rsedit.update_time}></p>					
+				</ol>
+				<{if $smarty.get.col=="topic"}>
+				<ol class="key_openAll">展开全部</ol>
+				<{/if}>
+			</div>
+			<{if $rsedit.website}>
+			<div class="body website">
+				<{$rsedit.website}>
+			</div>
+			<{else}>
+			<div class="body">
+			<{if $smarty.get.col=="topic"}>
+				<div class="topic_desc">
+				<{$rsedit.description}>
+				</div>
+				<div class="topic_content">
+					<{section name=list2 loop=$rsedit.materials}>
+					<section>
+						<h5><{$rsedit.materials[list2].ttl}></h5>
+						<a class="link" target="_blank" href="index.php?act=edit&col=material&tpl=article&id=<{$rsedit.materials[list2].id}>">详情</a>
+						<div class="main" style="background: #f6f6f6;">
+							<{$rsedit.materials[list2].content}>
+						</div>
+					</section>
+					<{/section}>
+				</div>
+				<div class="cont" style=" background: #f5fbfc;">
+					<{$rsedit.content}>
+				</div>
+			<{else}>
+				<{$rsedit.content}>
+			<{/if}>
+			</div>
+			<{/if}>
+
+		</div>
+	</div>
+
+
+
+<script>
+$(function(){
+	//topic详情弹出
+	$(document).on("click",".topic_content section h5",function(){
+		$(this).siblings(".main").toggle().toggleClass("open");
+	});
+	$(document).on("click",".key_openAll",function(){
+		if($(this).hasClass("active")){
+			$(this).text("展开全部").removeClass("active");
+			$(".topic_content section .main").hide();
+		}else{
+			$(this).text("收起全部").addClass("active");
+			$(".topic_content section .main").show();
+		}
+	});
+});
+</script>
+
+
+</body>
+</html>

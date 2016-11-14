@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+/*****reset*****/
+body,input,button,select,textarea{ font:12px/24px "Microsoft Yahei",arial,Tahoma,sans-serif; color:#333;}
+body,h1,h2,h3,h4,h5,h6,p,ul,li,ol,dl,dt,dd,form,input,button,textarea{ padding:0; margin:0;}
+ul,ol,li{ list-style-type:none;}
+img,iframe{ border:0;}
+input,button,textarea,select{ border:#ddd 1px solid; outline:none;}
+input,button,textarea{ background:transparent;}
+table{ border-collapse:collapse; border-spacing:0;}
+a{ text-decoration:none; color:#333;}
+a:hover{ color: #e43a3d;}
+h1,h2,h3,h4,h5,h6{ font-size:14px; font-weight:normal;}
+i,em{ font-style:normal;} 
+img,textarea{ vertical-align:top;}
+a img:hover{ opacity:.8;}
+html,body{ overflow-x:hidden;}
+body{ position:relative;}
+
+.sWraper{ width:900px; margin-left:auto; margin-right:auto;}
+
+.clr{ *display: inline-block;}
+.clr:after{ content:"."; display:block; height:0; clear:both; visibility:hidden;}
+
+
+/*页码*/
+.pPage{ line-height:26px; text-align:center; padding:20px 0;}
+.pPage ul{ overflow:hidden; display:inline-block; *float: left;}
+.pPage li{ float: left; margin:0 2px 5px;}
+.pPage li a,.pPage li span{}
+.pPage li a{ display:block; height:26px; padding:0 8px; border:solid #d6eae7 1px; cursor: pointer; _float: left;}
+.pPage li span{display:block; height:26px; padding:0 8px; border:solid #e4f2f3 1px; color: #bbb; _float: left;}
+.pPage .hidden a{ border:solid #e4f2f3 1px; color:#bbb;}
+.pPage li span.pageCur,.pPage li a:hover{ border:#bf3928 1px solid; color:#cf5d4e; font-weight: bold;}
+
+
+/*导航*/
+.sNav{ height: 30px; padding: 12px 0; overflow: hidden;}
+.sNav li{ float: left;}
+.sNav li a{ display: block; height: 28px; line-height: 28px; border: #d6eae7 1px solid; font-weight: bold; padding: 0 20px; margin-right: 12px; border-radius: 15px; -webkit-border-radius:15px; -moz-border-radius:15px;}
+.sNav li.on a{ background: #cf5d4e; border: #bf3928 1px solid; color: #fff; }
+
+.wrapNav{ position: fixed; width:100%; height:53px; border-bottom: #d6eae7 1px solid; background: #fff;}
+.wrapNav .sNav{ width: 900px; margin: 0 auto;}

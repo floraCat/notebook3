@@ -1,0 +1,123 @@
+
+
+
+
+/*头部*/
+.sTop{ height: 68px; padding: 15px 10px 5px; background: #eaf5f6; position: relative; border-bottom: solid 10px #e4f2f3;}
+.sTop a.on{ background-color: #cf5d4e!important; color: #fff; border:#bf3928 1px solid!important; }
+.sTop .unit{ position: relative;}
+
+
+
+.sTop .unit h3{ position: absolute; top: 0; left: 0; width: 50px; font-size:12px; height: 26px; line-height: 26px; text-align: center;}
+.sTop .unit ol{ padding-left: 50px; margin-bottom: 8px;}
+.sTop .unit ol a.tab{ float: left; margin-right: 5px; padding:0 10px; height: 26px; line-height: 26px; text-align: center; border: solid #d6eae7 1px; background: #fff; cursor: pointer;}
+.sTop .sSort ol a.tab{ padding-right: 20px; background:#fff url(imgs/i_sort_down.png) no-repeat 65px center; background-size: 8px;}
+.sTop .sSort ol a.up{ background: url(imgs/i_sort_up.png) no-repeat 65px center; background-size: 8px;}
+
+.unit_sort{ float: left; position: relative;}
+.unit_sort .drop{ display: none; position: absolute; top: 27px; padding-top: 10px; width: 500px; left: -44px;}
+.unit_sort .drop i{ position: absolute; top: 0; left: 44px; width:35px; height:10px; background: url(imgs/i_down2.png) no-repeat center; background-size: 12px;}
+.unit_sort .drop ul{ overflow: hidden; max-width: 300px;}
+.unit_sort .drop a{ float: left; height: 34px; line-height: 34px; padding: 0 10px; border:#ddd 1px solid; background: #fafafa; cursor: pointer;}
+.unit_sort .drop ul.keys a:first-child{ border-right: none;}
+.unit_sort .drop ul table{ float: left; overflow: hidden; border:none;}
+.unit_sort .drop ul table td{ width: 35px; height: 34px; line-height: 34px; text-align: center; background: #fafafa; cursor: pointer;  border:#ddd 1px solid;}
+.unit_sort .drop ul table td a{ display: block; float: none; border:none;}
+.unit_sort .drop ul table td a.on{ border:none!important;}
+
+
+/*.sFilter .drops .drop{ display: none; position: absolute; top: 27px; padding-top: 10px;}
+.sFilter .drops .drop i{ position: absolute; top: 0; left: 44px; width:35px; height:10px; background: url(imgs/i_down2.png) no-repeat center; background-size: 12px;}
+.sFilter .drops .drop ul{ overflow: hidden; max-width: 300px;}
+.sFilter .drops .drop a{ float: left; height: 34px; line-height: 34px; padding: 0 10px; border:#ddd 1px solid; background: #fafafa; cursor: pointer;}
+.sFilter .drops .drop ul.keys a:first-child{ border-right: none;}
+.sFilter .drops .drop ul table{ float: left; overflow: hidden; border:none;}
+.sFilter .drops .drop ul table td{ width: 35px; height: 34px; line-height: 34px; text-align: center; background: #fafafa; cursor: pointer;  border:#ddd 1px solid;}
+.sFilter .drops .drop ul table td a{ display: block; float: none; border:none;}
+.sFilter .drops .drop ul table td a.on{ border:none!important;}
+.drop_year{ left: 5px;}
+.drop_month{ left: 44px;}
+.drop_day{ left: 83px;}
+.drop_bCat{ left: 134px;}
+.drop_sCat{ left: 197px;}
+.drop_attr{ left: 255px;}
+.drop_keyword{ left: 135px;}
+.drop_mark{ left: 317px;}
+.drops_note .drop_mark{ left: 140px;}
+.drops_diary .drop_mark{left: 205px;}*/
+
+
+/*搜索框*/
+.sSearch{ position: absolute; right: 10px; top: 15px; height: 26px; line-height: 26px; border: solid #d6eae7 1px; background: #fff;}
+.sSearch ul.topicKey{ width: 55px; height: 100%;}
+.sSearch ul.topicKey input{ width: 100%; height: 100%; border:none; text-indent: 5px;}
+.sSearch ul{ float: left; width: 70px; border-right: solid #d6eae7 1px; position: relative;}
+.sSearch ul .onKey{ display: block; height: 26px; text-indent: 8px;}
+.sSearch ul .opts{ display: none; position: absolute; top: 26px; left: -1px; width: 70px; border: #ddd 1px solid; border-bottom: none; background: #fff;}
+.sSearch ul .opts a{ display: block; height: 26px; border-bottom: #ddd 1px solid; text-indent: 8px; cursor: pointer;}
+.sSearch ul .opts a:hover{ background: #eee;}
+.sSearch ol{ float: left;}
+.sSearch ol .kw{ float: left; width: 130px; height: 20px; line-height: 20px; padding:3px 5px; border: none; border-right: solid #d6eae7 1px;}
+.sSearch ol .kw.WdateFmtErr{ font-weight: normal; color: #333;}
+.sSearch ol .btn{ float: left; height: 26px; padding:0 5px; border: none; cursor: pointer;}
+.sSearch ol .btn:hover{ background: #eee;}
+
+.sAdd{ position: absolute; top: 51px; right: 10px; border: solid #d6eae7 1px; padding:0 5px; background: #fff;}
+.sTitle{ position: absolute; top: 51px; right: 218px; border: solid #d6eae7 1px; padding:0 5px; background: #fff; cursor: pointer;}
+.sEdit{ position: absolute; top: 51px; right: 174px; border: solid #d6eae7 1px; padding:0 5px; background: #fff; cursor: pointer;}
+
+
+.sList{ padding:25px 10px 0;}
+.sList li{ margin-bottom: 20px;}
+.sList li a{ cursor: pointer;}
+.sList li a:hover{ text-decoration: underline;}
+.sList .ttl{ *display: inline-block; position: relative; height: 26px; line-height: 26px; border-bottom:dashed #d6eae7 1px;}
+.sList .ttl:after{ content:"."; display:block; height:0; clear:both; visibility:hidden;}
+.sList .ttl:hover .blank{ display: block;}
+.sList .ttl .blank{ float: left; width: 45px; height: 14px; font-family: arial; line-height: 14px; text-align: center; border:#c1dfc1 1px solid; margin: 5px 5px 0 0; border-radius: 3px; background: #e4f6e4;}
+.sList .ttl .blank:hover{ text-decoration: none;}
+.content-panel .sList .ttl .blank{ display: none!important;}
+.sList .ttl .A{ float: left; font-size: 14px; font-weight: bold; color: #111; margin-right: 15px;}
+.sList .ol1{ float: left; overflow: hidden; margin-right: 15px;}
+.sList .ol1 h5{ font-size: 12px; float: left; color: #888; margin-right: 6px;}
+.sList .ol1 p{ float: left; font-size: 10px; color: #ccc;}
+.sList .ol2{ float: right; width: 70px; height: 25px; overflow: hidden;}
+.sList .ol2 a{ display: none; float: left; margin-right: 8px;}
+.sList .body{ padding: 10px 15px 0; background: #f0fafb; max-height: 180px; border-bottom: #f0fafb 12px solid; overflow: hidden;}
+.sContent .sList .body{ max-height: none;}
+.sList .ttl .A.mark_black{ color: #333; }
+.sList .ttl .A.mark_green{ color: #1ea52b; }
+.sList .ttl .A.mark_blue{ color: #2359bc; }
+.sList .ttl .A.mark_grey{ color: #bbbbbb; }
+.sList .ttl .A.mark_red{ color: #aa0e0e; }
+
+.sList .body ol li{ padding: 0; margin:0 0 0 50px; display: list-item; list-style-type: decimal; }
+.sList .body ul li{ padding: 0; margin:0 0 0 50px; display: list-item; list-style-type: disc; }
+.sList .body em{ font-style: italic; }
+
+
+.sContent{ position: fixed; top: 0; left: 0; width: 100%; height: 100%; overflow-y: scroll;}
+.sContent .mask{ position: fixed; top: 0; right: 17px; width: 100%; height: 100%; background: #333; opacity: .5;}
+.sContent .sList{ width: 880px; padding: 25px 10px; margin:25px auto; background: #fff; position: relative; z-index: 99;}
+.sContent .infos{ font-size: 10px; color: #aaa; width: 870px; padding: 0 5px; height: 24px; line-height: 24px; background: #f8f8f8; margin:5px 0;}
+.sContent .quit{ position: absolute; z-index: 100; top: 5px; left: 50%; margin-left: 428px; width: 40px; height: 40px; background:url(imgs/i_quit.png) no-repeat center; background-size: 100%; cursor: pointer;}
+
+.topic_content section{ position: relative; margin-bottom: 10px; }
+.topic_content section h5{ padding: 5px; background: #ecf1e7;}
+.topic_content section .link{ position: absolute; right: 0; top: 0; width: 50px; height: 34px; line-height: 34px; background: #ecf1e7; text-align: center;}
+.topic_content section .main{ display: none; padding: 10px 15px;}
+.key_openAll{ float: right; }
+
+
+/*标签面板*/
+.key-copy-panel{ position: absolute; top: 15px; left:50%; margin-left: 388px; width: 60px; height: 24px; line-height: 24px; text-align: center; background: #f0fafb; border:#d6eae7 1px solid; cursor: pointer;}
+.copy-panel{ left: 50%; width: 300px; margin-left: 450px; }
+.copy-panel .quit{left:auto; margin-left: auto; right:15px;}
+.copy-panel .sList{ width: 90%; }
+.copy-panel .ttl{ font-size: 20px; height: 30px; line-height: 30px; margin-bottom: 10px;}
+.copy-panel section{ margin-bottom: 15px; }
+.copy-panel section h5{ font-size: 14px; line-height: 30px; margin-bottom:5px; color: #cf5d4e;}
+.copy-panel section ol{ *display: inline-block;}
+.copy-panel section ol:after{ content:"."; display:block; height:0; clear:both; visibility:hidden;}
+.copy-panel section ol dl{ display: block; float: left; margin:0 0 10px 5px; height: 22px; line-height: 22px; padding: 0 10px; font-size: 12px; text-align: center; border:#c1dfc1 1px solid; background-color: #e4f6e4;}

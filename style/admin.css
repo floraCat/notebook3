@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+.aTop{ position: relative; overflow: hidden;}
+.aTop ol{ float: left; overflow: hidden;}
+.aTop h5{ float: left; font-size: 14px; line-height: 60px; color: #cf5d4e;}
+.aTop ul{ float: left; padding:15px 10px 15px 0; overflow: hidden;}
+.aTop li{ float: left; padding:0 10px;}
+.aTop li a{ cursor: pointer; display: block; height: 28px; line-height: 28px; padding:0 15px; border-radius: 15px; border: #d6eae7 1px solid;}
+.aTop li.on a{ background: #cf5d4e; border: #bf3928 1px solid; color: #fff;}
+
+.adminList{ width: 1000px; margin:0 auto;}
+.adminList table{ width: 100%; text-align: center;}
+.adminList table .hd{ background: #f8f8f8; font-weight: bold;}
+.adminList table td{ padding:5px;}
+.adminList table a{ color: #cf5d4e; cursor: pointer; margin: 0 5px;}
+.adminList table a:hover{ text-decoration: underline;}
+.adminList table span{ margin: 0 5px;}
+.adminList table input{ width: 40px; height: 16px; line-height: 16px; padding:2px; text-align: center; border: #eee 1px solid;}
+.adminList table .input{ width: 100%; height: 25px; line-height: 25px; padding: 0; border:none; background: #fdfee5; color: #999;}
+
+
+.wraper-add{ overflow: hidden; }
+.key-add{ position: absolute; top: 15px; right: 0; width: 60px; height: 24px; line-height: 24px; text-align: center; background: #f0fafb; border:#d6eae7 1px solid; cursor: pointer; }
+.adminList .table-add{ float: right; width:500px; margin-bottom:15px;}
+.adminList .table-add .tr td{ color: #aaa; }
+.adminList .table-add input{ width: 100%; height: 100%; padding: 0; background:#fdfee5; box-sizing:border-box;}
+
+
+.h_mask{ display: none; position: fixed; top: 0; left:0; width: 100%; height: 100%; background-color: #fff; opacity: .5;}
+.mAlert2{ display:none; position:fixed; top:100px; left:50%; margin-left:-90px; width:180px; height:50px; line-height:50px; font-size:14px; background: #f8f8f8; border:#ddd 1px solid; text-align:center; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px;}
