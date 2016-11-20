@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.22, created on 2016-11-15 17:26:24
+<?php /* Smarty version 2.6.22, created on 2016-11-20 22:56:33
          compiled from index.html */ ?>
 <!DOCTYPE HTML>
 <html lang="zh-cn">
@@ -30,17 +30,18 @@
 <div class="p-infos">
 
 	<div class="Index">
-		<a href="index.php?act=list&col=note">随笔</a>
-		<a href="index.php?act=list&col=material">题材</a>
-		<a href="index.php?act=list&col=topic">主题</a>
-		<a href="index.php?act=list&col=website">网址</a>
-		<a href="index.php?act=list&col=diary">日志</a>
+		<a target="_blank" href="index.php?act=list&col=note">随笔</a>
+		<a target="_blank" href="index.php?act=list&col=material">题材</a>
+		<a target="_blank" href="index.php?act=list&col=topic">主题</a>
+		<a target="_blank" href="index.php?act=list&col=website">网址</a>
+		<a target="_blank" href="index.php?act=list&col=diary">日志</a>
 	</div><!--Index end-->
 
 	<pre>
 	*随笔：不分类别主题，即时记录，每天清理转化到题材或系统知识点；
-	*题材：各个小知识点，为总结到系统知识点前积累相关的题材
-	*主题：每个独立的知识点系统化
+	*点_[spot]（题材）：各个小知识点，为总结到系统知识点前积累相关的题材
+	*线_[line]（主题）：多个相关的小知识点分类
+	*面_[plane]（系统知识）：多个大知识点系统化
 	*网址：
 	*日志：每天做了什么，工作进度
 
@@ -64,8 +65,8 @@
 
 	<br /><br />
 	<div class="Index">
-		<a target="_blank" href="../diary/">评分表</a>
-		<a target="_blank" href="../data/">记忆桩</a>
+		<a target="_blank" href="__diary/">评分表</a>
+		<a target="_blank" href="__data/">记忆桩</a>
 	</div><!--Index end-->
 
 
@@ -87,7 +88,7 @@
 
 
 	<div class="Admin">
-		<a href="system/admin.php">后台</a>
+		<a href="admin.php" target="_blank">后台</a>
 	</div>
 
 </div>

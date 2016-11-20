@@ -1,0 +1,8 @@
+@charset "utf-8";
+
+
+/*箭头*/
+.arrow(@pos:top,@w:16px,@col:#333){ .ab; left:50%; width:0; height:0; margin-left:-@w/2; border:@w/2 transparent dashed; border-@{pos}:@w/2 @col solid;}
+.go(@w:10px,@col:#888){ content:''; width:@w; height:@w; border-top:@col 1px solid; border-right:@col 1px solid; transform:rotate(45deg); -webkit-transform:rotate(45deg);}
+
+

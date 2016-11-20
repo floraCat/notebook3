@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="sys_resource/css/base.css" rel="stylesheet" type="text/css" />
+<link href="sys_resource/css/layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="sys_resource/js/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="sys_resource/js/self_1.js"></script>
+<script type="text/javascript" src="sys_resource/js/mod.js"></script>
+</head>
+
+
+
+<div class="wrap Mode">
+除“列表”外尽量用global样式
+
+<!--分页 start-->
+<div class="pagelist">
+	<div class="page101 pageAH fl">
+	<{$pagehtml}>
+	</div>
+</div><!--pagelist end-->
+<!--分页 end-->
+<input type="hidden" name="col" value="<{$smarty.get.col}>" />
+<ol>
+	<{section name=mode loop=$rsList}>
+	<dl>
+		<dt><img src="upload/modeImgs/<{$rsList[mode].title}>.jpg" alt="" /></dt>
+		<dd class="dd1">
+			<h4 class="zs"><{$rsList[mode].title}> / <{$rsList[mode].mark}></h4>
+			<div class="Btns">
+			<a href="_mode.php?db=mode&ttl=<{$rsList[mode].title}>&tpl=pc" target="_blank">电脑版</a>
+			<a href="_mode.php?db=mode&ttl=<{$rsList[mode].title}>&tpl=m" target="_blank">手机版</a>
+			<a href="upload/mode/<{$rsList[mode].title}>.png" target="_blank">jpg图片</a>
+			<a style="background-color:#99FFCC;" href="_mode.php?db=mode&ttl=<{$rsList[mode].title}>&tpl=code" target="_blank">代码</a>
+			<a class="show_des" href="javascript:;">详情</a>
+			<a class="_select" id="<{$rsList[mode].id}>" href="javascript:;">选中</a>
+			</div>
+		</dd>
+		<dd class="dd2">
+			<ol>
+			<p>id：<em><{$rsList[mode].id}></em></p>
+			<p>类型：<em><{$rsList[mode].type}></em></p>
+			<p>属性：<em><{$rsList[mode].attr}></em></p>
+			<p>宽度：<em><{$rsList[mode].width}></em></p>
+			<p>高度：<em><{$rsList[mode].height}></em></p>
+			<p>图片路径：<em><{$rsList[mode].pic}></em></p>
+			<p>原始：<em><{$rsList[mode].original}></em></p>
+			<p>等级：<em><{$rsList[mode].grade}></em></p>
+			<p>标识：<em><{$rsList[mode].label}></em></p>
+			</ol>
+			<p>标注：<em><{$rsList[mode].mark}></em></p>
+			<p>简介：<em><{$rsList[mode].description}></em></p>
+		</dd>
+	</dl>
+	<{/section}>
+</ol>
+</div><!--Mode end-->
+<script>
+//详情div隐藏显示
+$(function(){
+	$(".Mode .show_des").hover(function(){
+		$(this).parents(".dd1").siblings(".dd2").toggle();
+	});
+	$(".Mode ._select").click(function(){
+		$(this).addClass("on").parents("dl").siblings("dl").find("._select").removeClass("on");
+	});
+});
+</script>
+
+
+<!--分页 start-->
+<div class="pagelist">
+	<div class="page101 pageAH fl">
+	<{$pagehtml}>
+	</div>
+</div><!--pagelist end-->
+<!--分页 end-->
+
+</body>
+</html>

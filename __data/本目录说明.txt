@@ -1,0 +1,31 @@
+_img_download.php --》 模板list.html的Mod部分“下载图”按键来下载图标到_img_download文件夹里；
+
+_mode.php --》 控制模板list_body_mode.html模块的展示，分PC端（list_body_mode_pc.html模板）和手机端（list_body_mode_m.html模板）
+
+_modify.php --》 前端关于Mod部分（相关字段grade,label,mark）的数据库修改
+
+_save_by_file_for_mode.html --》 /admin后台关于mode模块的另类保存(此文件分段保存到对应模块数据库)
+
+
+
+
+
+
+/automode --》自动mode【一键保存指定地址的文件内所有html里添加了指定字符串的模块】
+
+index.php?act=list&col=automode访问自动mode列表，点击“模板结构及修改”访问所有模块的网站列表（需后台添加），点击其“点击保存或修改”automode.php可把此地址的文件夹内所有html里添加了指定字符串的模块逐一保存或修改（此指定字符串如^^内无数字，则执行保存操作，同时在^^内添加index数字后更新此html，如^^内有数字，则执行修改操作）
+
+/automode/automode_mode --》【生成单个模块代码】：访问index.php点击按键“static”调取输入框模块名[db_automode的模板]的源代码；点击按键“global”同上且带有global.css用到的样式代码；
+
+/automode/automode_temp --》【生成整站模板】：/template内编辑好模板（“<{$模块名}>”可调用此模块名对应代码），访问index.php可预览所有动态页（temp.php操作），可生成所有静态页到/sta里ic文件夹里（static.php操作）
+
+
+
+
+
+
+
+
+
+
+sys_upload2.class.php第55行说明：

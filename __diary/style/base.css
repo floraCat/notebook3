@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+
+/*****reset*****/
+body,input,select,textarea{ font:12px/24px "微软雅黑",arial,Tahoma,sans-serif; color:#333; }
+body,h1,h2,h3,h4,h5,h6,p,ul,li,ol,dl,dt,dd,input,pre,textarea{ padding:0; margin:0;}
+ul,ol,li{ list-style-type:none;}
+img,input,iframe{ border:none;}
+input{ outline:none;}
+*,input{ background-repeat:no-repeat;}
+ul,li,ol,dl,dt,dd,p,div,h1,h2,h3,h4,h5,h6,a,form,input{ overflow:hidden;}
+i,b{ display:block; font-style:normal; font-weight:normal;}
+s{ text-decoration:none; font-family:"宋体";}
+em{ font-style:normal;}
+h1{ font:bold 16px/40px 微软雅黑;}
+h3{ font:bold 14px/30px 微软雅黑;}
+h4,h5{ font-weight:normal; font-size:12px;}
+a{ text-decoration:none; color:#333;}
+
+
+/*****global*****/
+.fl{ float:left;}
+.fr{ float:right;}
+.lt,.lt_,.Lt,.Left,.Left0{ float:left;}
+.cen,.cen_,.Cen,.Center{ float:left;}
+.rt,.rt_,.Rt,.Right,.Right0{ float:right;}
+h1.logo{ height:auto;}
+h1.logo img{ width:auto; height:auto;}
+.v{ overflow:visible;}
+.none{ display:none!important;}
+.wrap{ width:1000px; margin:0 auto;}
+
+
+
+/*zs*/
+a:hover{ color:#d7000f;}
+.zs{ color:#d7000f;}
+.zsAH a:hover{ color:#d7000f!important;}
+
+
+
+
+/*css*/
+
+
+
+

@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+/*****reset*****/
+body,input,button,select,textarea{ font:12px/24px "Microsoft Yahei",arial,Tahoma,sans-serif; color:#333;}
+body,h1,h2,h3,h4,h5,h6,p,ul,li,ol,dl,dt,dd,form,input,button,textarea{ padding:0; margin:0; background-repeat:no-repeat;}
+ul,ol,li{ list-style-type:none;}
+img,iframe{ border:0;}
+input,button,select,textarea,:focus{ outline:none; border:#ddd 1px solid;}
+input,button,textarea{ background:transparent; -webkit-appearance:none; -moz-appearance:none; appearance:none;}
+table{ border-collapse:collapse; border-spacing:0;}
+a{ text-decoration:none; color:#333;}
+h1,h2,h3,h4,h5,h6{ font-size:14px; font-weight:normal;}
+mark{ font-weight:bold; background:transparent;}
+i,em{ font-style:normal;}
+i{ display:block;}
+html,body{ position:relative; /*overflow-x:hidden; _overflow-x:inherit;*/}
+
+
