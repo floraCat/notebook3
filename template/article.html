@@ -87,29 +87,29 @@
 				<{$rsedit.website}>
 			</div>
 			<{else}>
-			<div class="body">
-			<{if $smarty.get.col=="topic"}>
-				<div class="topic_desc">
-				<{$rsedit.description}>
-				</div>
-				<div class="topic_content">
-					<{section name=list2 loop=$rsedit.materials}>
-					<section>
-						<h5><{$rsedit.materials[list2].ttl}></h5>
-						<a class="link" target="_blank" href="index.php?act=edit&col=material&tpl=article&id=<{$rsedit.materials[list2].id}>">详情</a>
-						<div class="main" style="background: #f6f6f6;">
-							<{$rsedit.materials[list2].content}>
-						</div>
-					</section>
-					<{/section}>
-				</div>
-				<div class="cont" style=" background: #f5fbfc;">
+				<div class="body">
+				<{if $smarty.get.col=="topic"}>
+					<div class="topic_desc">
+					<{$rsedit.description}>
+					</div>
+					<div class="topic_content">
+						<{section name=list2 loop=$rsedit.materials}>
+						<section>
+							<h5><{$rsedit.materials[list2].ttl}></h5>
+							<a class="link" target="_blank" href="index.php?act=edit&col=material&tpl=article&id=<{$rsedit.materials[list2].id}>">详情</a>
+							<div class="main" style="background: #f6f6f6;">
+								<{$rsedit.materials[list2].content}>
+							</div>
+						</section>
+						<{/section}>
+					</div>
+					<div class="cont" style=" background: #f5fbfc;">
+						<{$rsedit.content}>
+					</div>
+				<{else}>
 					<{$rsedit.content}>
+				<{/if}>
 				</div>
-			<{else}>
-				<{$rsedit.content}>
-			<{/if}>
-			</div>
 			<{/if}>
 
 		</div>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.22, created on 2016-11-20 22:14:38
+<?php /* Smarty version 2.6.22, created on 2016-11-22 18:01:21
          compiled from edit.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -51,8 +51,9 @@
     <div class="sNav">
         <li data-col="index"><a href="index.php">首页</a></li>
         <li data-col="note"><a href="index.php?act=list&col=note">随笔</a></li>
-        <li data-col="material"><a href="index.php?act=list&col=material">题材</a></li>
-        <li data-col="topic"><a href="index.php?act=list&col=topic">主题</a></li>
+        <li data-col="material"><a href="index.php?act=list&col=material">- 点 -</a></li>
+        <li data-col="topic"><a href="index.php?act=list&col=topic">- 线 -</a></li>
+        <li data-col="plane"><a href="index.php?act=list&col=plane">- 面 -</a></li>
         <li data-col="website"><a href="index.php?act=list&col=website">网址</a></li>
         <li data-col="diary"><a href="index.php?act=list&col=diary">日志</a></li>
     </div>

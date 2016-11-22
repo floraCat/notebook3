@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.22, created on 2016-11-20 22:56:33
+<?php /* Smarty version 2.6.22, created on 2016-11-22 18:02:57
          compiled from list.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -22,8 +22,9 @@
 	<div class="sNav">
 		<li data-col="index"><a href="index.php">首页</a></li>
 		<li data-col="note"><a href="index.php?act=list&col=note">随笔</a></li>
-		<li data-col="material"><a href="index.php?act=list&col=material">题材</a></li>
-		<li data-col="topic"><a href="index.php?act=list&col=topic">主题</a></li>
+		<li data-col="material"><a href="index.php?act=list&col=material">- 点 -</a></li>
+		<li data-col="topic"><a href="index.php?act=list&col=topic">- 线 -</a></li>
+		<li data-col="plane"><a href="index.php?act=list&col=plane">- 面 -</a></li>
 		<li data-col="website"><a href="index.php?act=list&col=website">网址</a></li>
 		<li data-col="diary"><a href="index.php?act=list&col=diary">日志</a></li>
 	</div>
@@ -442,7 +443,7 @@ $this->_sections['list']['last']       = ($this->_sections['list']['iteration'] 
 					<?php endif; ?>
 					<?php if ($_GET['col'] == 'material'): ?>
 					<ol class="ol1">
-						<h5>主题：</h5>
+						<h5>线：</h5>
 						<p><?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['topic_name']; ?>
  | ID:<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['topic_id']; ?>
 </p>					
@@ -450,9 +451,19 @@ $this->_sections['list']['last']       = ($this->_sections['list']['iteration'] 
 					<?php endif; ?>
 					<?php if ($_GET['col'] == 'topic'): ?>
 					<ol class="ol1">
-						<h5>ID：</h5>
-						<p><?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['id']; ?>
+						<h5>面id：</h5>
+						<p><?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['topic_id']; ?>
 </p>					
+					</ol>
+					<ol class="ol1">
+						<h5>ID = <?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['id']; ?>
+</h5>
+					</ol>
+					<?php endif; ?>
+					<?php if ($_GET['col'] == 'plane'): ?>
+					<ol class="ol1">
+						<h5>ID = <?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['id']; ?>
+</h5>
 					</ol>
 					<?php endif; ?>
 					<ol class="ol2">
@@ -485,14 +496,14 @@ $this->_sections['list']['last']       = ($this->_sections['list']['iteration'] 
 </pre>
 				</div>
 				<?php else: ?>
-				<div class="body">
-				<?php if ($_GET['col'] == 'topic'): ?>
-					<div class="topic_desc">
-					<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['description']; ?>
+					<div class="body">
+					<?php if ($_GET['col'] == 'topic'): ?>
+						<div class="topic_desc">
+						<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['description']; ?>
 
-					</div>
-					<div class="topic_content" style="display: none;">
-						<?php unset($this->_sections['list2']);
+						</div>
+						<div class="topic_content" style="display: none;">
+							<?php unset($this->_sections['list2']);
 $this->_sections['list2']['name'] = 'list2';
 $this->_sections['list2']['loop'] = is_array($_loop=$this->_tpl_vars['rsList'][$this->_sections['list']['index']]['materials']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
 $this->_sections['list2']['show'] = true;
@@ -516,27 +527,66 @@ $this->_sections['list2']['index_next'] = $this->_sections['list2']['index'] + $
 $this->_sections['list2']['first']      = ($this->_sections['list2']['iteration'] == 1);
 $this->_sections['list2']['last']       = ($this->_sections['list2']['iteration'] == $this->_sections['list2']['total']);
 ?>
-						<section>
-							<h5><?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['materials'][$this->_sections['list2']['index']]['ttl']; ?>
+							<section>
+								<h5><?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['materials'][$this->_sections['list2']['index']]['ttl']; ?>
 </h5>
-							<a class="link" target="_blank" href="index.php?act=edit&col=material&tpl=article&id=<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['materials'][$this->_sections['list2']['index']]['id']; ?>
+								<a class="link" target="_blank" href="index.php?act=edit&col=material&tpl=article&id=<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['materials'][$this->_sections['list2']['index']]['id']; ?>
 ">详情</a>
-							<div class="main" style="background: #f6f6f6;">
-								<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['materials'][$this->_sections['list2']['index']]['content']; ?>
+								<div class="main" style="background: #f6f6f6;">
+									<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['materials'][$this->_sections['list2']['index']]['content']; ?>
 
+								</div>
+							</section>
+							<?php endfor; endif; ?>
+						</div>
+						<div class="cont" style="display: none; background: #f5fbfc;">
+							<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['content']; ?>
+
+						</div>
+					<?php else: ?>
+
+						<!--面-->
+						<?php if ($_GET['col'] == 'plane'): ?>
+							<style>
+							.list-plane a{ display:inline-block; float:left; height:30px; line-height:30px; border:#ddd 1px solid; padding:0 12px; margin:3px; background-color:#eee;}
+							</style>
+							<div class="list-plane">
+								<?php unset($this->_sections['list2']);
+$this->_sections['list2']['name'] = 'list2';
+$this->_sections['list2']['loop'] = is_array($_loop=$this->_tpl_vars['rsList'][$this->_sections['list']['index']]['materials']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
+$this->_sections['list2']['show'] = true;
+$this->_sections['list2']['max'] = $this->_sections['list2']['loop'];
+$this->_sections['list2']['step'] = 1;
+$this->_sections['list2']['start'] = $this->_sections['list2']['step'] > 0 ? 0 : $this->_sections['list2']['loop']-1;
+if ($this->_sections['list2']['show']) {
+    $this->_sections['list2']['total'] = $this->_sections['list2']['loop'];
+    if ($this->_sections['list2']['total'] == 0)
+        $this->_sections['list2']['show'] = false;
+} else
+    $this->_sections['list2']['total'] = 0;
+if ($this->_sections['list2']['show']):
+
+            for ($this->_sections['list2']['index'] = $this->_sections['list2']['start'], $this->_sections['list2']['iteration'] = 1;
+                 $this->_sections['list2']['iteration'] <= $this->_sections['list2']['total'];
+                 $this->_sections['list2']['index'] += $this->_sections['list2']['step'], $this->_sections['list2']['iteration']++):
+$this->_sections['list2']['rownum'] = $this->_sections['list2']['iteration'];
+$this->_sections['list2']['index_prev'] = $this->_sections['list2']['index'] - $this->_sections['list2']['step'];
+$this->_sections['list2']['index_next'] = $this->_sections['list2']['index'] + $this->_sections['list2']['step'];
+$this->_sections['list2']['first']      = ($this->_sections['list2']['iteration'] == 1);
+$this->_sections['list2']['last']       = ($this->_sections['list2']['iteration'] == $this->_sections['list2']['total']);
+?>
+									<a class="link" target="_blank" href="index.php?act=edit&col=topic&tpl=article&id=<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['materials'][$this->_sections['list2']['index']]['id']; ?>
+"><?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['materials'][$this->_sections['list2']['index']]['ttl']; ?>
+</a>
+								<?php endfor; endif; ?>
 							</div>
-						</section>
-						<?php endfor; endif; ?>
-					</div>
-					<div class="cont" style="display: none; background: #f5fbfc;">
-						<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['content']; ?>
+						<?php else: ?>
 
-					</div>
-				<?php else: ?>
-					<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['content']; ?>
+							<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['content']; ?>
 
-				<?php endif; ?>
-				</div>
+						<?php endif; ?>
+					<?php endif; ?>
+					</div>
 				<?php endif; ?>
 			</li>
 			<?php endfor; endif; ?>
@@ -1009,12 +1059,18 @@ function li_html(data){
 		$topic="";
 		if($col=="material"){
 			if(data[i]["topic_name"]){//topic
-				$topic='<ol class="ol1"><h5>主题：</h5><p>'+data[i]["topic_name"]+' | ID:'+data[i]["topic_id"]+'</p></ol>';
+				$topic='<ol class="ol1"><h5>线：</h5><p>'+data[i]["topic_name"]+' | ID:'+data[i]["topic_id"]+'</p></ol>';
 			}
 		}
 		$topicID="";
 		if($col=="topic"){
-			$topicID='<ol class="ol1"><h5>ID：</h5><p>'+data[i]["id"]+'</p></ol>';
+			//if(data[i]["topic_name"]){//topic
+			$topic='<ol class="ol1"><h5>面id：</h5><p>'+data[i]["topic_id"]+'</p></ol>';
+			//}
+			$topicID='<ol class="ol1"><h5>ID = '+data[i]["id"]+'</ol>';
+		}
+		if($col=="plane"){
+			$topicID='<ol class="ol1"><h5>ID = '+data[i]["id"]+'</ol>';
 		}
 		// if(data[i]["sCat"]){//sCat
 		// 	$sCat='<ol class="ol1 sCat"><h5>小分类：</h5><p>'+data[i]["sCat"]+'</p></ol>';

@@ -58,6 +58,17 @@ if($col=="note"){
 if($col=="topic"){ 
 	$db_name="db_topic";
 	$tpl_list="list.html";
+
+	$list_sub="yes";
+	$db_name_sub="db_material";
+}
+//面
+if($col=="plane"){ 
+	$db_name="db_plane";
+	$tpl_list="list.html";
+
+	$list_sub="yes";
+	$db_name_sub="db_topic";
 }
 //网址
 if($col=="website"){ 
@@ -108,8 +119,8 @@ if($act=='edit'){
 		$id_bCat=$rs_bcat2["id"];
 
 		//topic内容处理
-		if($col=="topic" && $_REQUEST["tpl"]=="article"){
-			$arr_material=$sdb->getTableAllResult("db_material"," 1=1 And topic_id='".$rsedit["id"]."' And mark!='grey' Order By topic_sort DESC ");
+		if($list_sub=="yes" && $_REQUEST["tpl"]=="article"){
+			$arr_material=$sdb->getTableAllResult("$db_name_sub"," 1=1 And topic_id='".$rsedit["id"]."' And mark!='grey' Order By topic_sort DESC ");
 			$rsedit["materials"]=$arr_material;
 			if($rsedit["description"]==""){
 				if($arr_material){
@@ -271,9 +282,11 @@ if($act=='list'){
 	$rs_mark=$sdb->getTableAllResult("tab_mark","1=1");
 
 	//topic内容处理
-	if($col=="topic"){
+	if($list_sub=="yes"){
+
 		foreach($rsList as $k5=>$v5){
-			$arr_material=$sdb->getTableAllResult("db_material"," 1=1 And topic_id='".$v5["id"]."' And mark!='grey' Order By topic_sort DESC ");
+			// $arr_material=$sdb->getTableAllResult("$db_name_sub"," 1=1 And topic_id='".$v5["id"]."' And mark!='grey' Order By topic_sort DESC ");
+			$arr_material=$sdb->getTableAllResult("$db_name_sub"," 1=1 And topic_id='".$v5["id"]."' Order By topic_sort DESC ");
 			$rsList[$k5]["materials"]=$arr_material;
 			if($v5["description"]==""){
 				if($arr_material){

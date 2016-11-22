@@ -19,8 +19,9 @@
 	<div class="sNav">
 		<li data-col="index"><a href="index.php">首页</a></li>
 		<li data-col="note"><a href="index.php?act=list&col=note">随笔</a></li>
-		<li data-col="material"><a href="index.php?act=list&col=material">题材</a></li>
-		<li data-col="topic"><a href="index.php?act=list&col=topic">主题</a></li>
+		<li data-col="material"><a href="index.php?act=list&col=material">- 点 -</a></li>
+		<li data-col="topic"><a href="index.php?act=list&col=topic">- 线 -</a></li>
+		<li data-col="plane"><a href="index.php?act=list&col=plane">- 面 -</a></li>
 		<li data-col="website"><a href="index.php?act=list&col=website">网址</a></li>
 		<li data-col="diary"><a href="index.php?act=list&col=diary">日志</a></li>
 	</div>
@@ -253,14 +254,22 @@
 					<{/if}>
 					<{if $smarty.get.col=="material"}>
 					<ol class="ol1">
-						<h5>主题：</h5>
+						<h5>线：</h5>
 						<p><{$rsList[list].topic_name}> | ID:<{$rsList[list].topic_id}></p>					
 					</ol>
 					<{/if}>
 					<{if $smarty.get.col=="topic"}>
 					<ol class="ol1">
-						<h5>ID：</h5>
-						<p><{$rsList[list].id}></p>					
+						<h5>面id：</h5>
+						<p><{$rsList[list].topic_id}></p>					
+					</ol>
+					<ol class="ol1">
+						<h5>ID = <{$rsList[list].id}></h5>
+					</ol>
+					<{/if}>
+					<{if $smarty.get.col=="plane"}>
+					<ol class="ol1">
+						<h5>ID = <{$rsList[list].id}></h5>
 					</ol>
 					<{/if}>
 					<ol class="ol2">
@@ -286,29 +295,43 @@
 					<pre style="margin:0;"><{$rsList[list].website}></pre>
 				</div>
 				<{else}>
-				<div class="body">
-				<{if $smarty.get.col=="topic"}>
-					<div class="topic_desc">
-					<{$rsList[list].description}>
-					</div>
-					<div class="topic_content" style="display: none;">
-						<{section name=list2 loop=$rsList[list].materials}>
-						<section>
-							<h5><{$rsList[list].materials[list2].ttl}></h5>
-							<a class="link" target="_blank" href="index.php?act=edit&col=material&tpl=article&id=<{$rsList[list].materials[list2].id}>">详情</a>
-							<div class="main" style="background: #f6f6f6;">
-								<{$rsList[list].materials[list2].content}>
+					<div class="body">
+					<{if $smarty.get.col=="topic"}>
+						<div class="topic_desc">
+						<{$rsList[list].description}>
+						</div>
+						<div class="topic_content" style="display: none;">
+							<{section name=list2 loop=$rsList[list].materials}>
+							<section>
+								<h5><{$rsList[list].materials[list2].ttl}></h5>
+								<a class="link" target="_blank" href="index.php?act=edit&col=material&tpl=article&id=<{$rsList[list].materials[list2].id}>">详情</a>
+								<div class="main" style="background: #f6f6f6;">
+									<{$rsList[list].materials[list2].content}>
+								</div>
+							</section>
+							<{/section}>
+						</div>
+						<div class="cont" style="display: none; background: #f5fbfc;">
+							<{$rsList[list].content}>
+						</div>
+					<{else}>
+
+						<!--面-->
+						<{if $smarty.get.col=="plane"}>
+							<style>
+							.list-plane a{ display:inline-block; float:left; height:30px; line-height:30px; border:#ddd 1px solid; padding:0 12px; margin:3px; background-color:#eee;}
+							</style>
+							<div class="list-plane">
+								<{section name=list2 loop=$rsList[list].materials}>
+									<a class="link" target="_blank" href="index.php?act=edit&col=topic&tpl=article&id=<{$rsList[list].materials[list2].id}>"><{$rsList[list].materials[list2].ttl}></a>
+								<{/section}>
 							</div>
-						</section>
-						<{/section}>
+						<{else}>
+
+							<{$rsList[list].content}>
+						<{/if}>
+					<{/if}>
 					</div>
-					<div class="cont" style="display: none; background: #f5fbfc;">
-						<{$rsList[list].content}>
-					</div>
-				<{else}>
-					<{$rsList[list].content}>
-				<{/if}>
-				</div>
 				<{/if}>
 			</li>
 			<{/section}>
@@ -695,12 +718,18 @@ function li_html(data){
 		$topic="";
 		if($col=="material"){
 			if(data[i]["topic_name"]){//topic
-				$topic='<ol class="ol1"><h5>主题：</h5><p>'+data[i]["topic_name"]+' | ID:'+data[i]["topic_id"]+'</p></ol>';
+				$topic='<ol class="ol1"><h5>线：</h5><p>'+data[i]["topic_name"]+' | ID:'+data[i]["topic_id"]+'</p></ol>';
 			}
 		}
 		$topicID="";
 		if($col=="topic"){
-			$topicID='<ol class="ol1"><h5>ID：</h5><p>'+data[i]["id"]+'</p></ol>';
+			//if(data[i]["topic_name"]){//topic
+			$topic='<ol class="ol1"><h5>面id：</h5><p>'+data[i]["topic_id"]+'</p></ol>';
+			//}
+			$topicID='<ol class="ol1"><h5>ID = '+data[i]["id"]+'</ol>';
+		}
+		if($col=="plane"){
+			$topicID='<ol class="ol1"><h5>ID = '+data[i]["id"]+'</ol>';
 		}
 		// if(data[i]["sCat"]){//sCat
 		// 	$sCat='<ol class="ol1 sCat"><h5>小分类：</h5><p>'+data[i]["sCat"]+'</p></ol>';

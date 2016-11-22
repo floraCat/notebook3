@@ -1,7 +1,7 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 define('EXAMPLE_IN_YES', true);//用于关闭project
-include_once("../../include/config_score.php");//配置
+include_once("../../include/config_diary.php");//配置
 error_reporting(E_ALL & ~E_NOTICE); //用于上线后隐藏报错，开发是不需要隐藏
 /*********引入通用类*********************/
 //系统默认类

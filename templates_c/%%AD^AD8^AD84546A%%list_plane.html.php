@@ -1,5 +1,5 @@
-<?php /* Smarty version 2.6.22, created on 2016-11-01 11:35:53
-         compiled from list.html */ ?>
+<?php /* Smarty version 2.6.22, created on 2016-11-22 16:57:24
+         compiled from list_plane.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -20,9 +20,11 @@
 
 	<!--导航-->
 	<div class="sNav">
+		<li data-col="index"><a href="index.php">首页</a></li>
 		<li data-col="note"><a href="index.php?act=list&col=note">随笔</a></li>
-		<li data-col="material"><a href="index.php?act=list&col=material">题材</a></li>
-		<li data-col="topic"><a href="index.php?act=list&col=topic">主题</a></li>
+		<li data-col="material"><a href="index.php?act=list&col=material">- 点 -</a></li>
+		<li data-col="topic"><a href="index.php?act=list&col=topic">- 线 -</a></li>
+		<li data-col="topic"><a href="index.php?act=list&col=plane">- 面 -</a></li>
 		<li data-col="website"><a href="index.php?act=list&col=website">网址</a></li>
 		<li data-col="diary"><a href="index.php?act=list&col=diary">日志</a></li>
 	</div>
@@ -333,6 +335,11 @@ $this->_sections['list']['last']       = ($this->_sections['list']['iteration'] 
 				</div>
 			</ul>
 			<?php endif; ?>
+			<?php if ($this->_tpl_vars['Fields']['topic_id']): ?>
+			<ul class="topicKey">
+				<input type="number" name="topic_id" placeholder="主题ID" />
+			</ul>
+			<?php endif; ?>
 			<ul class="searchKey">
 				<a class="onKey" data-role="ttl">标题</a>
 				<div class="opts">
@@ -394,6 +401,9 @@ $this->_sections['list']['last']       = ($this->_sections['list']['iteration'] 
 			<li data-id="<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['id']; ?>
 ">
 				<div class="ttl">
+					<a class="blank" target="_blank" href="index.php?act=edit&tpl=article&col=<?php echo $_GET['col']; ?>
+&id=<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['id']; ?>
+">_blank</a>
 					<?php if ($this->_tpl_vars['rsList'][$this->_sections['list']['index']]['ttl']): ?>
 					<a target="_blank" class="A ttl_ mark_<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['mark']; ?>
 "><?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['ttl']; ?>
@@ -431,6 +441,21 @@ $this->_sections['list']['last']       = ($this->_sections['list']['iteration'] 
 </p>					
 					</ol>
 					<?php endif; ?>
+					<?php if ($_GET['col'] == 'material'): ?>
+					<ol class="ol1">
+						<h5>主题：</h5>
+						<p><?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['topic_name']; ?>
+ | ID:<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['topic_id']; ?>
+</p>					
+					</ol>
+					<?php endif; ?>
+					<?php if ($_GET['col'] == 'topic'): ?>
+					<ol class="ol1">
+						<h5>ID：</h5>
+						<p><?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['id']; ?>
+</p>					
+					</ol>
+					<?php endif; ?>
 					<ol class="ol2">
 						<a onclick="return confirm('是否删除此条目？');" href="index.php?act=del&col=<?php echo $_GET['col']; ?>
 &id=<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['id']; ?>
@@ -451,24 +476,25 @@ $this->_sections['list']['last']       = ($this->_sections['list']['iteration'] 
 						<p><?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['update_time']; ?>
 </p>					
 					</ol>
+					<?php if ($_GET['col'] == 'topic'): ?>
 					<ol class="key_openAll">展开全部</ol>
+					<?php endif; ?>
 				</div>
 				<?php if ($this->_tpl_vars['rsList'][$this->_sections['list']['index']]['website']): ?>
 				<div class="body website">
-					<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['website']; ?>
-
+					<pre style="margin:0;"><?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['website']; ?>
+</pre>
 				</div>
 				<?php else: ?>
 				<div class="body">
-					<?php if ($_GET['col'] == 'topic'): ?>
-					<div class="topic_desc">
-					<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['desc']; ?>
-
-					</div>
-					<div class="topic_content" style="display: none;">
+				
+<style>
+.list-plane{}
+</style>
+					<div class="list-plane">
 						<?php unset($this->_sections['list2']);
 $this->_sections['list2']['name'] = 'list2';
-$this->_sections['list2']['loop'] = is_array($_loop=$this->_tpl_vars['rsList'][$this->_sections['list']['index']]['content']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
+$this->_sections['list2']['loop'] = is_array($_loop=$this->_tpl_vars['rsList'][$this->_sections['list']['index']]['materials']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
 $this->_sections['list2']['show'] = true;
 $this->_sections['list2']['max'] = $this->_sections['list2']['loop'];
 $this->_sections['list2']['step'] = 1;
@@ -491,19 +517,14 @@ $this->_sections['list2']['first']      = ($this->_sections['list2']['iteration'
 $this->_sections['list2']['last']       = ($this->_sections['list2']['iteration'] == $this->_sections['list2']['total']);
 ?>
 						<section>
-							<h5><?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['content'][$this->_sections['list2']['index']]['ttl']; ?>
-</h5>
-							<div class="main" style="background: #f6f6f6;">
-								<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['content'][$this->_sections['list2']['index']]['content']; ?>
-
-							</div>
+							<a class="link" target="_blank" href="index.php?act=edit&col=plane&tpl=article&id=<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['materials'][$this->_sections['list2']['index']]['id']; ?>
+"><?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['materials'][$this->_sections['list2']['index']]['ttl']; ?>
+</a>
 						</section>
 						<?php endfor; endif; ?>
 					</div>
-					<?php else: ?>
-					<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['content']; ?>
+				
 
-					<?php endif; ?>
 				</div>
 				<?php endif; ?>
 			</li>
@@ -528,7 +549,7 @@ $this->_sections['list2']['last']       = ($this->_sections['list2']['iteration'
 		<div class="mask"></div>
 		<a class="quit"></a>
 		<div class="sList">
-			<div class="ttl">
+			<!-- <div class="ttl">
 				<a target="_blank" class="time mark<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['mark']; ?>
 "><?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['input_time']; ?>
 </a>
@@ -539,7 +560,7 @@ $this->_sections['list2']['last']       = ($this->_sections['list2']['iteration'
 </p>					
 					</ol>
 					<?php endif; ?>
-					<!-- <?php if ($this->_tpl_vars['rsList'][$this->_sections['list']['index']]['sCat']): ?>
+					<?php if ($this->_tpl_vars['rsList'][$this->_sections['list']['index']]['sCat']): ?>
 					<ol class="ol1 sCat">
 						<h5>小分类：</h5>
 						<p><?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['sCat']; ?>
@@ -552,7 +573,7 @@ $this->_sections['list2']['last']       = ($this->_sections['list2']['iteration'
 						<p><?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['attr']; ?>
 </p>					
 					</ol>
-					<?php endif; ?> -->
+					<?php endif; ?>
 					<?php if ($this->_tpl_vars['rsList'][$this->_sections['list']['index']]['keyword']): ?>
 					<ol class="ol1 keyword">
 						<h5>关键字：</h5>
@@ -572,7 +593,6 @@ $this->_sections['list2']['last']       = ($this->_sections['list2']['iteration'
 			
 			<div class="body body3">
 			<?php if ($_GET['col'] == 'topic'): ?>
-			333
 				<?php unset($this->_sections['list2']);
 $this->_sections['list2']['name'] = 'list2';
 $this->_sections['list2']['loop'] = is_array($_loop=$this->_tpl_vars['rsList'][$this->_sections['list']['index']]['content']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
@@ -607,11 +627,10 @@ $this->_sections['list2']['last']       = ($this->_sections['list2']['iteration'
 				</section>
 				<?php endfor; endif; ?>
 			<?php else: ?>
-			222
 				<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['content']; ?>
 
 			<?php endif; ?>
-			</div>
+			</div> -->
 		</div>
 	</div>
 
@@ -773,6 +792,7 @@ $(function(){
 		$(".content-panel").show();
 		$(".content-panel .ol2").show();
 		$(".content-panel .infos").show();
+		$(".content-panel .cont").show();
 		$("body,html").css("overflow-y","hidden");
 		if($("#col").val()=="topic"){
 			$(".content-panel .topic_desc").hide();
@@ -876,11 +896,17 @@ $(function(){
 		var search=$(".searchKey .onKey").attr("data-role");
 		var bCat=$(".bCatKey .onKey").attr("data-role");
 		var kw=$(".sSearch .kw").val();
+		if($("#col").val()=="material"){
+			var topic_id=$(".sSearch input[name=topic_id]").val();
+		}else{
+			var topic_id="";
+		}
+		
 		// if(search=="input_time"){
 		// 	kw=kw.substr(0,10);
 		// }
 		var submitdata=submit_data();
-		$.post("index.php?act=list&search="+search+"&kw="+kw+"&bCat="+bCat,submitdata,function(data){
+		$.post("index.php?act=list&search="+search+"&kw="+kw+"&bCat="+bCat+"&topic_id="+topic_id,submitdata,function(data){
 			var data = eval("(" + data + ")");
 			$(".sList ul").html(li_html(data[0]));
 			$(".pPage").html(data[1]);
@@ -889,7 +915,7 @@ $(function(){
 	$(".sSearch .btn").click(function(){
 		searchSubmit();
 	});
-	$("input[name=search]").focus(function(){
+	$(".sSearch input").focus(function(){
 		$(document).on("keydown",function(ev){
 			var _curKey=ev.which || ev.keyCode || ev.charCode;
 			if(_curKey==13){ searchSubmit();}// 确认键
@@ -902,8 +928,8 @@ $(function(){
 		$("body").animate({scrollTop:0},100);
 		var page_on=$(this).data("role");
 		$("#page").val(page_on);
-		var col=$("#col").val();
-		$.post("index.php?act=list&col="+col,submit_data(),function(data){
+		//var col=$("#col").val();
+		$.post("index.php?act=list",submit_data(),function(data){
 			var data = eval("(" + data + ")");
 			$(".sList ul").html(li_html(data[0]));
 			$(".pPage").html(data[1]);
@@ -959,6 +985,7 @@ function submit_data(){
 
 //回调
 function li_html(data){
+	//console.log(data);
 	var $col=$("#col").val();
 	var $html="";
 	for(var i=0;i<=data.length-1;i++){
@@ -968,12 +995,22 @@ function li_html(data){
 		if(data[i]["bCat"]){//bCat
 			$bCat='<ol class="ol1 bCat"><h5>大分类：</h5><p>'+data[i]["bCat"]+'</p></ol>';
 		}else{ $bCat=""; }
-		if(data[i]["sCat"]){//sCat
-			$sCat='<ol class="ol1 sCat"><h5>小分类：</h5><p>'+data[i]["sCat"]+'</p></ol>';
-		}else{ $sCat=""; }
-		if(data[i]["attr"]){//attr
-			$attr='<ol class="ol1 attr"><h5>标签：</h5><p>'+data[i]["attr"]+'</p></ol>';
-		}else{ $attr=""; }
+		$topic="";
+		if($col=="material"){
+			if(data[i]["topic_name"]){//topic
+				$topic='<ol class="ol1"><h5>主题：</h5><p>'+data[i]["topic_name"]+' | ID:'+data[i]["topic_id"]+'</p></ol>';
+			}
+		}
+		$topicID="";
+		if($col=="topic"){
+			$topicID='<ol class="ol1"><h5>ID：</h5><p>'+data[i]["id"]+'</p></ol>';
+		}
+		// if(data[i]["sCat"]){//sCat
+		// 	$sCat='<ol class="ol1 sCat"><h5>小分类：</h5><p>'+data[i]["sCat"]+'</p></ol>';
+		// }else{ $sCat=""; }
+		// if(data[i]["attr"]){//attr
+		// 	$attr='<ol class="ol1 attr"><h5>标签：</h5><p>'+data[i]["attr"]+'</p></ol>';
+		// }else{ $attr=""; }
 		if(data[i]["keyword"]){//keyword
 			$keyword='<ol class="ol1 keyword"><h5>标签：</h5><p>'+data[i]["keyword"]+'</p></ol>';
 		}else{ $keyword=""; }
@@ -985,13 +1022,41 @@ function li_html(data){
 		}else{ $update=""; }
 		if(data[i]["website"]){
 			$content='<div class="body website">'+data[i]["website"]+'</div>';//website
-		}else{ $content='<div class="body">'+data[i]["content"]+'</div>'; }//content
+		}else{ 
+			if($col=="topic"){
+				var $materials='';
+				for(var j in data[i]["materials"]){
+					$materials+='<section>'
+							+'<h5>'+data[i]["materials"][j]["ttl"]+'</h5>'
+							+'<a class="link" target="_blank" href="index.php?act=edit&col=material&tpl=article&id='+data[i]["materials"][j]["id"]+'">详情</a>'
+							+'<div class="main" style="background: #f6f6f6;">'
+								+data[i]["materials"][j]["content"]
+							+'</div>'
+						+'</section>';
+				}
+				$content='<div class="body">'
+							+'<div class="topic_desc">'
+								+data[i]["description"]
+							+'</div>'
+							+'<div class="topic_content" style="display: none;">'
+								+$materials
+							+'</div>'
+							+'<div class="cont" style="display: none; background: #f5fbfc;">'
+								+data[i]["content"]
+							+'</div>'
+						+'</div>';
+			}else{
+				$content='<div class="body">'+data[i]["content"]+'</div>'; }//content
+			}
 		var html='<li>'
 			+'<div class="ttl">'
+				+'<a class="blank" target="_blank" href="index.php?act=edit&tpl=article&col='+$col+'&id='+data[i]["id"]+'">_blank</a>'
 				+$ttl
 				+$bCat
-				+$sCat
-				+$attr
+				+$topic
+				+$topicID
+				//+$sCat
+				//+$attr
 				+$keyword
 				+'<ol class="ol2">'
 					+'<a onclick="return confirm('+'\'是否删除此条目？\''+');" href="index.php?act=del&col='+$col+'&id='+data[i]["id"]+'">删除</a>'

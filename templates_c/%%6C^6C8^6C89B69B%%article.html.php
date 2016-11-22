@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.22, created on 2016-11-20 22:56:39
+<?php /* Smarty version 2.6.22, created on 2016-11-22 17:58:59
          compiled from article.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -109,14 +109,14 @@
 
 			</div>
 			<?php else: ?>
-			<div class="body">
-			<?php if ($_GET['col'] == 'topic'): ?>
-				<div class="topic_desc">
-				<?php echo $this->_tpl_vars['rsedit']['description']; ?>
+				<div class="body">
+				<?php if ($_GET['col'] == 'topic'): ?>
+					<div class="topic_desc">
+					<?php echo $this->_tpl_vars['rsedit']['description']; ?>
 
-				</div>
-				<div class="topic_content">
-					<?php unset($this->_sections['list2']);
+					</div>
+					<div class="topic_content">
+						<?php unset($this->_sections['list2']);
 $this->_sections['list2']['name'] = 'list2';
 $this->_sections['list2']['loop'] = is_array($_loop=$this->_tpl_vars['rsedit']['materials']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
 $this->_sections['list2']['show'] = true;
@@ -140,27 +140,27 @@ $this->_sections['list2']['index_next'] = $this->_sections['list2']['index'] + $
 $this->_sections['list2']['first']      = ($this->_sections['list2']['iteration'] == 1);
 $this->_sections['list2']['last']       = ($this->_sections['list2']['iteration'] == $this->_sections['list2']['total']);
 ?>
-					<section>
-						<h5><?php echo $this->_tpl_vars['rsedit']['materials'][$this->_sections['list2']['index']]['ttl']; ?>
+						<section>
+							<h5><?php echo $this->_tpl_vars['rsedit']['materials'][$this->_sections['list2']['index']]['ttl']; ?>
 </h5>
-						<a class="link" target="_blank" href="index.php?act=edit&col=material&tpl=article&id=<?php echo $this->_tpl_vars['rsedit']['materials'][$this->_sections['list2']['index']]['id']; ?>
+							<a class="link" target="_blank" href="index.php?act=edit&col=material&tpl=article&id=<?php echo $this->_tpl_vars['rsedit']['materials'][$this->_sections['list2']['index']]['id']; ?>
 ">详情</a>
-						<div class="main" style="background: #f6f6f6;">
-							<?php echo $this->_tpl_vars['rsedit']['materials'][$this->_sections['list2']['index']]['content']; ?>
+							<div class="main" style="background: #f6f6f6;">
+								<?php echo $this->_tpl_vars['rsedit']['materials'][$this->_sections['list2']['index']]['content']; ?>
 
-						</div>
-					</section>
-					<?php endfor; endif; ?>
-				</div>
-				<div class="cont" style=" background: #f5fbfc;">
+							</div>
+						</section>
+						<?php endfor; endif; ?>
+					</div>
+					<div class="cont" style=" background: #f5fbfc;">
+						<?php echo $this->_tpl_vars['rsedit']['content']; ?>
+
+					</div>
+				<?php else: ?>
 					<?php echo $this->_tpl_vars['rsedit']['content']; ?>
 
+				<?php endif; ?>
 				</div>
-			<?php else: ?>
-				<?php echo $this->_tpl_vars['rsedit']['content']; ?>
-
-			<?php endif; ?>
-			</div>
 			<?php endif; ?>
 
 		</div>

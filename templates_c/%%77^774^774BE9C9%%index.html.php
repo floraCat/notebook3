@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.22, created on 2016-11-20 22:56:33
+<?php /* Smarty version 2.6.22, created on 2016-11-22 17:18:49
          compiled from index.html */ ?>
 <!DOCTYPE HTML>
 <html lang="zh-cn">
@@ -31,8 +31,9 @@
 
 	<div class="Index">
 		<a target="_blank" href="index.php?act=list&col=note">随笔</a>
-		<a target="_blank" href="index.php?act=list&col=material">题材</a>
-		<a target="_blank" href="index.php?act=list&col=topic">主题</a>
+		<a target="_blank" href="index.php?act=list&col=material">- 点 -</a>
+		<a target="_blank" href="index.php?act=list&col=topic">- 线 -</a>
+		<a target="_blank" href="index.php?act=list&col=plane">- 面 -</a>
 		<a target="_blank" href="index.php?act=list&col=website">网址</a>
 		<a target="_blank" href="index.php?act=list&col=diary">日志</a>
 	</div><!--Index end-->
