@@ -320,10 +320,11 @@
 						<{if $smarty.get.col=="plane"}>
 							<style>
 							.list-plane a{ display:inline-block; float:left; height:30px; line-height:30px; border:#ddd 1px solid; padding:0 12px; margin:3px; background-color:#eee;}
+							.list-plane a span{ color: #5cb85c; }
 							</style>
 							<div class="list-plane">
 								<{section name=list2 loop=$rsList[list].materials}>
-									<a class="link" target="_blank" href="index.php?act=edit&col=topic&tpl=article&id=<{$rsList[list].materials[list2].id}>"><{$rsList[list].materials[list2].ttl}></a>
+									<a class="link" target="_blank" href="index.php?act=edit&col=topic&tpl=article&id=<{$rsList[list].materials[list2].id}>"><{$rsList[list].materials[list2].ttl}> <span><{$rsList[list].materials[list2].id}></span></a>
 								<{/section}>
 							</div>
 						<{else}>

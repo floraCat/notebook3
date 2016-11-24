@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.22, created on 2016-11-23 18:17:50
+<?php /* Smarty version 2.6.22, created on 2016-11-24 15:24:31
          compiled from list.html */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -549,6 +549,7 @@ $this->_sections['list2']['last']       = ($this->_sections['list2']['iteration'
 						<?php if ($_GET['col'] == 'plane'): ?>
 							<style>
 							.list-plane a{ display:inline-block; float:left; height:30px; line-height:30px; border:#ddd 1px solid; padding:0 12px; margin:3px; background-color:#eee;}
+							.list-plane a span{ color: #5cb85c; }
 							</style>
 							<div class="list-plane">
 								<?php unset($this->_sections['list2']);
@@ -577,7 +578,8 @@ $this->_sections['list2']['last']       = ($this->_sections['list2']['iteration'
 ?>
 									<a class="link" target="_blank" href="index.php?act=edit&col=topic&tpl=article&id=<?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['materials'][$this->_sections['list2']['index']]['id']; ?>
 "><?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['materials'][$this->_sections['list2']['index']]['ttl']; ?>
-</a>
+ <span><?php echo $this->_tpl_vars['rsList'][$this->_sections['list']['index']]['materials'][$this->_sections['list2']['index']]['id']; ?>
+</span></a>
 								<?php endfor; endif; ?>
 							</div>
 						<?php else: ?>
